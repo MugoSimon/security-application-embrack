@@ -20,8 +20,8 @@ public class SecurityApplicationEmbrackApplication implements ApplicationListene
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
         int port = portListener.getPort();
-        System.out.println("***   ***   ***   ***   ***   ***   ***   ***   ***");
+        System.out.println("\n***   ***   ***   ***   ***   ***   ***   ***   ***");
         System.out.println("Security Embrack Service Started\nrunning on port: " + port);
-        System.out.println("***   ***   ***   ***   ***   ***   ***   ***   ***");
+        System.out.println("***   ***   ***   ***   ***   ***   ***   ***   ***\n");
     }
 }
