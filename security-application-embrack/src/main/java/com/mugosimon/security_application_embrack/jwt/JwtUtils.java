@@ -13,9 +13,24 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import javax.crypto.SecretKey;
 import java.security.Key;
 import java.util.Date;
+
+
+/**
+ * The JwtUtils class provides utility methods for handling JSON Web Tokens (JWT) in the application.
+ * It includes methods for extracting JWTs from HTTP headers, generating JWTs, validating JWTs,
+ * and retrieving the username from JWTs. The class uses the io.jsonwebtoken library for JWT operations.
+ *
+ * Methods:
+ * - getJwtFromHeader: Extracts the JWT from the Authorization header of an HTTP request.
+ * - generateTokenFromUsername: Generates a JWT for a given UserDetails object.
+ * - getUsernameFromJwtToken: Retrieves the username from a given JWT.
+ * - validateJwtToken: Validates a given JWT.
+ * - key: Generates a signing key from the configured JWT secret.
+ * - showError: Logs error messages along with exceptions.
+ */
+
 
 @Slf4j
 @Component
@@ -93,7 +108,7 @@ public class JwtUtils {
     public boolean validateJwtToken(String authToken) {
         try {
             log.info("Validating JWT token");
-            Jwts.parserBuilder()
+            Jwts.parser()
                     .setSigningKey(key())
                     .build()
                     .parseClaimsJws(authToken);

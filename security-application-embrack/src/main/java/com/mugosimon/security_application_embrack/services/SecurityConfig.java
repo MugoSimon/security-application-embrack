@@ -27,6 +27,26 @@ import javax.sql.DataSource;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+
+/**
+ * The SecurityConfig class configures security settings for the application using Spring Security.
+ * It defines beans and configurations for authentication, authorization, and security filter chains.
+ * This class enables method-level security and configures various security-related components such as
+ * user details service, password encoder, and JWT token filter.
+ * <p>
+ * Key Components:
+ * - DataSource: Autowired to interact with the database for user details.
+ * - AuthEntryPointJwt: Custom entry point to handle unauthorized access.
+ * - AuthTokenFilter: Custom filter to process JWT tokens.
+ * - SecurityFilterChain: Configures the security filter chain, including URL authorization rules,
+ * session management, exception handling, HTTP basic authentication, CSRF protection, and JWT filter.
+ * - UserDetailsService: Configures a JdbcUserDetailsManager to manage user details using the DataSource.
+ * - CommandLineRunner: Initializes sample users (USER and ADMIN) in the database.
+ * - PasswordEncoder: Configures a BCryptPasswordEncoder for encoding passwords.
+ * - AuthenticationManager: Provides an authentication manager bean.
+ */
+
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity

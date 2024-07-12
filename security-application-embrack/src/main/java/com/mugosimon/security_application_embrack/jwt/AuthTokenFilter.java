@@ -16,6 +16,21 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+
+/**
+ * The AuthTokenFilter class is a component that extends OncePerRequestFilter.
+ * It filters incoming requests to validate the JWT token and set the authentication
+ * in the Spring Security context. This ensures that users can access secured endpoints
+ * if they have a valid JWT token.
+ *
+ * Methods:
+ * - doFilterInternal: This method extracts the JWT token from the request header,
+ *   validates it, and sets the user authentication if the token is valid.
+ * - parseJwt: This helper method retrieves the JWT token from the request header
+ *   using JwtUtils.
+ */
+
+
 @Slf4j
 @Component
 public class AuthTokenFilter extends OncePerRequestFilter {

@@ -24,6 +24,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * The GreetingsController class is a REST controller that provides endpoints for user authentication
+ * and access control using JWT. It includes methods for user login and role-based access to different
+ * greetings. The controller uses Spring Security annotations to restrict access to specific roles.
+ *
+ * Endpoints:
+ * - /guys: Accessible by users with roles USER or ADMIN.
+ * - /user: Accessible by users with role USER.
+ * - /admin: Accessible by users with role ADMIN.
+ * - /signIn: Authenticates a user and returns a JWT along with user details and roles.
+ */
+
+
 @Slf4j
 @RestController
 public class GreetingsController {

@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "authorities", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"username", "authority"})
-})
+@Table(name = "authorities", uniqueConstraints = {@UniqueConstraint(columnNames = {"username", "authority"}) } )
 public class Authorities {
 
     @Id
